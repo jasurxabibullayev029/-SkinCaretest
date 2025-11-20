@@ -1,1 +1,1 @@
-web: gunicorn -c gunicorn_config.py skincare_ai.wsgi:application --chdir=skincare_ai
+web: gunicorn -c gunicorn_config.py skincare_ai.wsgi:application
