@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: skincare-ai
+    env: python
+    build:
+      buildCommand: "pip install -r requirements.txt && cd frontend && npm install && npm run build && cd .."
+      startCommand: "gunicorn skincare_ai.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: DISABLE_COLLECTSTATIC
+        value: 1
+      - key: DJANGO_SETTINGS_MODULE
+        value: skincare_ai.settings.production
+    plan: free
