@@ -3,15 +3,17 @@ services:
     name: skincare-ai
     env: python
     build:
-      buildCommand: "pip install -r requirements.txt && cd frontend && npm install && npm run build && cd .."
-      startCommand: "gunicorn -c gunicorn_config.py skincare_ai.wsgi:application"
+      buildCommand: |
+        pip install -r requirements.txt
+        python manage.py collectstatic --noinput
+    startCommand: "gunicorn -c gunicorn_config.py"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.4
-      - key: DISABLE_COLLECTSTATIC
-        value: 1
+        value: 3.9.13
       - key: DJANGO_SETTINGS_MODULE
-        value: skincare_ai.settings
+        value: SkinCareProject.settings
+      - key: PYTHONUNBUFFERED
+        value: 1
       - key: PORT
         value: 10000
     plan: free
