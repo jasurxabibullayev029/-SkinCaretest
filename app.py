@@ -1,6 +1,6 @@
 """
 WSGI config for skincare_ai project.
-""" 
+"""
 
 import os
 import sys
@@ -10,10 +10,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 # Add the project directory to the Python path
-sys.path.append(str(BASE_DIR))
-
-# Add the parent directory to the Python path (where manage.py is located)
-sys.path.append(str(BASE_DIR.parent))
+sys.path.insert(0, str(BASE_DIR))
+# Add the skincare_ai package to the path
+sys.path.insert(0, os.path.join(BASE_DIR, 'skincare_ai'))
 
 # Set the Django settings module
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skincare_ai.settings')
