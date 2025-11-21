@@ -8,8 +8,11 @@ import os
 import sys
 from pathlib import Path
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Add the project directory to the Python path
-project_root = str(Path(__file__).resolve().parent)
+project_root = os.path.dirname(__file__)
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
