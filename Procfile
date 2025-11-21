@@ -1,1 +1,1 @@
-web: gunicorn wsgi:application --log-file -
+web: gunicorn SkinCareProject.wsgi:application --log-file -
