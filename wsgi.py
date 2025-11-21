@@ -1,19 +1,24 @@
-""
+"""
 WSGI config for skincare_ai project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
 import os
+import sys
+from pathlib import Path
+
+# Build paths inside the project
+BASE_DIR = Path(__file__).resolve().parent
+
+# Add the project directory to Python path
+sys.path.insert(0, str(BASE_DIR))
+
+# Set the Django settings module
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skincare_ai.settings')
+
+# Initialize Django
+import django
+django.setup()
+
+# Get WSGI application
 from django.core.wsgi import get_wsgi_application
-from whitenoise import WhiteNoise
-from django.conf import settings
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skincare_ai.settings.production')
-
 application = get_wsgi_application()
-application = WhiteNoise(application, root=settings.STATIC_ROOT)
-application.add_files(settings.STATICFILES_DIRS, prefix='static/')
