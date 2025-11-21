@@ -1,0 +1,18 @@
+include *.md
+include requirements.txt
+include .env.example
+recursive-include skincare_ai/static *
+recursive-include skincare_ai/templates *
+recursive-include accounts/static *
+recursive-include accounts/templates *
+recursive-include articles/static *
+recursive-include articles/templates *
+recursive-include quiz/static *
+recursive-include quiz/templates *
+recursive-include routines/static *
+recursive-include routines/templates *
+recursive-include tracker/static *
+recursive-include tracker/templates *
+recursive-include chatbot/static *
+recursive-include chatbot/templates *
+include *.json
