@@ -9,6 +9,9 @@ chdir = str(BASE_DIR)
 # Add the project directory to Python path
 sys.path.insert(0, str(BASE_DIR))
 
+# Set the Django settings module
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'skincare.settings')
+
 # Gunicorn configuration
 bind = "0.0.0.0:{}".format(os.environ.get('PORT', '10000'))
 workers = 3
@@ -21,4 +24,4 @@ errorlog = '-'  # Log to stderr
 accesslog = '-'  # Log to stdout
 
 # WSGI application
-wsgi_app = "wsgi:application"
+wsgi_app = "skincare.wsgi:application"

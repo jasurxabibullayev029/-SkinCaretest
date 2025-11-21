@@ -5,19 +5,26 @@ import os
 with open('requirements.txt') as f:
     requirements = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
+# Read README for long description
+try:
+    with open('README.md', 'r', encoding='utf-8') as f:
+        long_description = f.read()
+except FileNotFoundError:
+    long_description = 'Skin Care Project'
+
 setup(
-    name="SkinCareProject",
+    name="skincare",
     version="1.0.0",
-    packages=find_packages(exclude=['tests*']),
+    packages=find_packages(include=['skincare', 'skincare.*']),
     include_package_data=True,
     install_requires=requirements,
     python_requires='>=3.8',
     author="Your Name",
     author_email="your.email@example.com",
     description="Skin Care Project",
-    long_description=open('README.md', 'r', encoding='utf-8').read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/SkinCareProject",
+    url="https://github.com/yourusername/skincare",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

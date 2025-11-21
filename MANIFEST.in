@@ -6,8 +6,24 @@ include *.sh
 include *.yaml
 include *.json
 include *.html
-recursive-include skincare_ai *
+include Procfile
+include gunicorn_config.py
+include runtime.txt
+include render.yaml
+
+# Include all app directories
+recursive-include skincare *
 recursive-include accounts *
+recursive-include quiz *
+recursive-include routines *
+recursive-include tracker *
+recursive-include articles *
+recursive-include chatbot *
+
+# Include static and media files
+recursive-include static *
+recursive-include media *
+recursive-include templates *
 recursive-include articles *
 recursive-include quiz *
 recursive-include routines *

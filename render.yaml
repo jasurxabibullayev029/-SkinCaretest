@@ -4,9 +4,10 @@ services:
     env: python
     build:
       buildCommand: |
+        pip install -e .
         pip install -r requirements.txt
         python manage.py collectstatic --noinput
-    startCommand: "gunicorn -c gunicorn_config.py"
+    startCommand: "gunicorn -c gunicorn_config.py skincare.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.13
@@ -18,4 +19,6 @@ services:
         value: 10000
       - key: DISABLE_COLLECTSTATIC
         value: 1
+      - key: PYTHONPATH
+        value: /opt/render/project/src
     plan: free
