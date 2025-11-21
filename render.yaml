@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: skincare-ai
+    name: skincare
     env: python
     build:
       buildCommand: |
@@ -11,9 +11,11 @@ services:
       - key: PYTHON_VERSION
         value: 3.9.13
       - key: DJANGO_SETTINGS_MODULE
-        value: SkinCareProject.settings
+        value: skincare.settings
       - key: PYTHONUNBUFFERED
         value: 1
       - key: PORT
         value: 10000
+      - key: DISABLE_COLLECTSTATIC
+        value: 1
     plan: free
