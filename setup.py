@@ -15,22 +15,14 @@ INSTALL_REQUIRES = [
     'openai==2.6.1'
 ]
 
-# Find all packages
-PACKAGES = find_packages(include=['skincare_ai*', 'accounts*', 'articles*', 'quiz*', 'routines*', 'tracker*', 'chatbot*'])
-
 setup(
     name="skincare_ai",
     version="1.0",
-    packages=PACKAGES,
+    packages=find_packages(),
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
     python_requires='>=3.8',
     package_data={
         '': ['*.html', '*.css', '*.js', '*.png', '*.jpg', '*.jpeg', '*.gif', '*.svg', '*.ico', '*.json'],
-    },
-    entry_points={
-        'console_scripts': [
-            'skincare_ai=manage:main',
-        ],
     },
 )
