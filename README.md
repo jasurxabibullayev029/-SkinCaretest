@@ -203,3 +203,15 @@ For support and questions:
 - [ ] Integration with skincare products API
 - [ ] Community features
 - [ ] Multi-language support
+
+## Deploying on Render.com (or other CI/build hosts)
+
+If you deploy on Render (or another host that runs `pip install -r requirements.txt` in a clean Python runtime), some packages (for example `Pillow`) may fall back to building from source. To reduce build failures, upgrade pip, setuptools and wheel before installing requirements.
+
+Recommended build command for Render (set this as your build command):
+
+```
+python -m pip install --upgrade pip setuptools wheel && python -m pip install -r requirements.txt
+```
+
+This ensures a recent wheel/build toolchain is available and often resolves errors like the KeyError encountered when building Pillow from source on newer Python versions.

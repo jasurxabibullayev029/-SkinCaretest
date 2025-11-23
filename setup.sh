@@ -23,7 +23,9 @@ source venv/bin/activate
 
 # Install Python dependencies
 echo "📚 Installing Python dependencies..."
-pip install -r requirements.txt
+echo "🔼 Upgrading pip, setuptools and wheel to avoid build issues (Pillow/build deps)..."
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r requirements.txt
 
 # Setup Django
 echo "⚙️ Setting up Django..."
