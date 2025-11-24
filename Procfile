@@ -1,1 +1,1 @@
-web: gunicorn -c gunicorn_config.py skincare.wsgi:application
+web: gunicorn skincare_ai.wsgi:application --log-file -
