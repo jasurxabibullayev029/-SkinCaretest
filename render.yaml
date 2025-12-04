@@ -6,10 +6,10 @@ services:
       python -m pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
-    startCommand: PYTHONPATH=. gunicorn skincare_ai.wsgi:application --log-file -
+    startCommand: gunicorn skincare_ai.wsgi:application --log-file -
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.4
+        value: 3.10.0
       - key: DJANGO_SETTINGS_MODULE
         value: skincare_ai.settings
       - key: SECRET_KEY
